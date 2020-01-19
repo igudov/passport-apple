@@ -89,7 +89,7 @@ function Strategy(options, verify) {
                         let refresh_token = results.refresh_token;
                         let id_token = jwt.decode(results.id_token).sub;
                         let email = jwt.decode(results.id_token).email;
-                        let name = jwt.decode(results.id_token).name;
+                        let name = jwt.decode(results.id_token);
 
                         console.log("Returned in callback access_token, refresh_token, id_token, email, name:", access_token, refresh_token, id_token, email, name)
 
