@@ -1,6 +1,7 @@
 /**
  * Passport Strategy that implements "Sign in with Apple"
  * @author: Ananay Arora <i@ananayarora.com>
+ * @modified: Ivan Gudov <igudov@gmail.com>
  */
 
 const OAuth2Strategy = require('passport-oauth2'),
@@ -85,9 +86,11 @@ function Strategy(options, verify) {
                         let results = JSON.parse(data);
                         let access_token = results.access_token;
                         let refresh_token = results.refresh_token;
-                        let id_token = jwt.decode(results.id_token).sub;
-                        let email = jwt.decode(results.id_token).email;
-                        let name = jwt.decode(results.id_token).name;
+                        // let id_token = jwt.decode(results.id_token).sub;
+                        let id_token = results.id_token;
+                        let email = results.email;
+                        let name = results.name;
+                        
                         callback(null, access_token, refresh_token, id_token, email, name, results);
 
                         // https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple
