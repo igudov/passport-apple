@@ -87,13 +87,13 @@ function Strategy(options, verify) {
                         console.log("WE GOT RESULTS!:", results)
                         let access_token = results.access_token;
                         let refresh_token = results.refresh_token;
-                        let id_token = jwt.decode(results.id_token).sub;
-                        let email = jwt.decode(results.id_token).email;
-                        let name = jwt.decode(results.id_token);
+                        let id_token = jwt.decode(results.id_token);
 
-                        console.log("Returned in callback access_token, refresh_token, id_token, email, name:", access_token, refresh_token, id_token, email, name)
+                        console.log("id_token decoded:");
+                        console.log("---- id_token --:");
+                        console.log(id_token);
 
-                        callback(null, access_token, refresh_token, id_token, email, name, results);
+                        callback(null, access_token, refresh_token, id_token, results);
 
                         // https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple
                     }
