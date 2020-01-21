@@ -95,7 +95,7 @@ function Strategy(options, verify) {
                         console.log("---- profile ---:");
                         console.log(profile);
 
-                        callback(null, access_token, refresh_token, id_token, profile, results);
+                        callback(null, access_token, refresh_token, profile, results);
 
                         // https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple
                     }
